@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~normalize.css';
+@import './styles/foody-colors';
+@import './styles/variables';
+@import './styles/extendables';
+
+@import './styles/global';
