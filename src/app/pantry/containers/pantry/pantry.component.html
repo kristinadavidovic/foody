@@ -1,0 +1,9 @@
+<div class="pantry">
+  <h1>Pantry</h1>
+  <mat-divider></mat-divider>
+  <div class="pantry__ingredients">
+    <div *ngFor="let ingredient of ingredients" class="item-ingredient">
+      <app-ingredient [ingredient]="ingredient"></app-ingredient>
+    </div>
+  </div>
+</div>

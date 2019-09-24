@@ -1,0 +1,18 @@
+// typography
+$fontBase:              'Roboto', sans-serif;
+$fontSpecial:           'Roboto Slab', serif;
+
+// Widths
+$containerWidth:        1024px;
+
+// Colors
+$colorBlack:           #000;
+$colorWhite:           #FFF;
+
+$colorPelorous:       #34B1C2;
+$colorAquamarine:     #65FBD2;
+$colorPersimmon:      #FF6347;
+
+$colorPrimary:          $colorPelorous;
+$colorAccent:           $colorAquamarine;
+$colorWarn:             $colorPersimmon;

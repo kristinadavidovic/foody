@@ -1,0 +1,16 @@
+<div class="ingredient">
+  <div class="ingredient__name">
+    <h3>
+      {{ ingredient.name }}
+    </h3>
+  </div>
+  <div class="ingredient__amount-uni">
+    <div class="ingredient__amount">{{ ingredient.amount }}</div>
+    <div class="ingredient__unit">{{ ingredient.unit }}</div>
+  </div>
+  <div class="ingredient__category">{{ ingredient.category }}</div>
+  <div class="ingredient__actions">
+    <button mat-mini-fab color="primary" title="Add to shopping list">+</button>
+    <button mat-mini-fab color="warn" title="Delete ingredient">ⅹ</button>
+  </div>
+</div>

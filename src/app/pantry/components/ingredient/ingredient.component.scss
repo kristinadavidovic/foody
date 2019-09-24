@@ -1,0 +1,22 @@
+.ingredient {
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 1fr 0.5fr 1fr 1fr; 
+  align-items: center;
+  padding: 5px 0;
+
+  &__amount {
+    &-uni {
+      display: flex;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+
+    button + button {
+      margin-left: 10px;
+    }
+  }
+}

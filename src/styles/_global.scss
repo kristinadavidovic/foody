@@ -1,0 +1,43 @@
+@import './variables';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+	overflow-x: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	font-family: $fontBase;
+	font-size: 1.6rem;
+	line-height: 1.2;
+	text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+	-moz-osx-font-smoothing: grayscale !important;
+}
+
+main {
+  min-height: calc(100vh - 97px - 80px);
+}
+
+img {
+	display: inline-block;
+	height: auto;
+	max-width: 100%;
+	width: 100%;
+}
+
+a {
+  color: $colorAccent;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:focus,
+  &:hover {
+    text-decoration: underline;
+  }
+}

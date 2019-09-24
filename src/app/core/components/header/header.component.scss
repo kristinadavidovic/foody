@@ -1,0 +1,23 @@
+.header {
+  padding: 20px 0;
+  
+  &__branding {
+    margin-right: auto;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .menu-item {
+    margin: 0 5px;
+  }
+}
+
+.mat-divider {
+  width: 100%;
+  margin-top: 20px;
+}
