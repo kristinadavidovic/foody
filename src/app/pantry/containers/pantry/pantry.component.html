@@ -1,8 +1,11 @@
 <div class="pantry">
-  <h1>Pantry</h1>
+  <div class="wrapper">
+    <h1>Pantry</h1>
+    <button mat-raised-button (click)="addIngredient()">Add ingredient</button>
+  </div>
   <mat-divider></mat-divider>
   <div class="pantry__ingredients">
-    <div *ngFor="let ingredient of ingredients" class="item-ingredient">
+    <div *ngFor="let ingredient of ingredients$" class="item-ingredient">
       <app-ingredient [ingredient]="ingredient"></app-ingredient>
     </div>
   </div>

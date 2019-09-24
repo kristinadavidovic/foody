@@ -21,7 +21,29 @@ export class FetchIngredientsSuccess implements Action {
   constructor(public payload: Ingredient[]) {}
 }
 
+export const ADD_INGREDIENT = '[Ingredients] Add ingredient';
+export const ADD_INGREDIENT_FAIL = '[Ingredients] Add ingredient Fail';
+export const ADD_INGREDIENT_SUCCESS = '[Ingredients] Add ingredient Success';
+
+export class AddIngredient implements Action {
+  readonly type = ADD_INGREDIENT;
+  constructor(public payload: Ingredient) {}
+}
+
+export class AddIngredientFail implements Action {
+  readonly type = ADD_INGREDIENT_FAIL;
+  constructor(public payload: any) {}
+}
+
+export class AddIngredientSuccess implements Action {
+  readonly type = ADD_INGREDIENT_SUCCESS;
+  constructor(public payload: Ingredient) {}
+}
+
 export type IngredientsActions =
   | FetchIngredients
   | FetchIngredientsFail
-  | FetchIngredientsSuccess;
+  | FetchIngredientsSuccess
+  | AddIngredient
+  | AddIngredientFail
+  | AddIngredientSuccess;

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // store
 import { StoreModule } from '@ngrx/store';
@@ -19,16 +21,20 @@ import { PantryResolver } from './routing/resolvers/pantry.resolver';
 
 import { PantryComponent } from './containers/pantry/pantry.component';
 import { IngredientComponent } from './components/ingredient/ingredient.component';
+import { AddIngredientComponent } from './components/add-ingredient/add-ingredient.component';
 
 @NgModule({
-  declarations: [PantryComponent, IngredientComponent],
+  declarations: [PantryComponent, IngredientComponent, AddIngredientComponent],
   imports: [
     SharedModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     PantryRoutingModule,
     StoreModule.forFeature('ingredients', IngredientsReducer),
-    // EffectsModule.forFeature(effectsIngredients),
+    EffectsModule.forFeature(effectsIngredients),
   ],
+  exports: [AddIngredientComponent],
   providers: [PantryResolver],
 })
 export class PantryModule {}

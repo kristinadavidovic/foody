@@ -5,19 +5,19 @@
 }
 
 html {
-	font-size: 62.5%;
-	overflow-x: hidden;
-	width: 100%;
-	height: 100%;
+  font-size: 62.5%;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 body {
-	font-family: $fontBase;
-	font-size: 1.6rem;
-	line-height: 1.2;
-	text-rendering: optimizeLegibility !important;
-	-webkit-font-smoothing: antialiased !important;
-	-moz-osx-font-smoothing: grayscale !important;
+  font-family: $fontBase;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
 }
 
 main {
@@ -25,10 +25,19 @@ main {
 }
 
 img {
-	display: inline-block;
-	height: auto;
-	max-width: 100%;
-	width: 100%;
+  display: inline-block;
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $fontSpecial;
 }
 
 a {

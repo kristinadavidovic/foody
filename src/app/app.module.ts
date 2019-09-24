@@ -15,17 +15,24 @@ import { RecipesModule } from './recipes/recipes.module';
 
 import { AppComponent } from './app.component';
 
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
+import { environment } from './../environments/environment';
+
 // not used in production
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { storeFreeze } from 'ngrx-store-freeze';
 
 // this would be done dynamically with webpack for builds
-const environment = {
+const environment1 = {
   development: true,
   production: false,
 };
 
-export const metaReducers: MetaReducer<any>[] = !environment.production
+export const metaReducers: MetaReducer<any>[] = !environment1.production
   ? [storeFreeze]
   : [];
 
@@ -41,9 +48,13 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     ShoppingListModule,
     StoreModule.forRoot({}, { metaReducers }),
     EffectsModule.forRoot([]),
-    environment.development ? StoreDevtoolsModule.instrument() : [],
+    environment1.development ? StoreDevtoolsModule.instrument() : [],
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

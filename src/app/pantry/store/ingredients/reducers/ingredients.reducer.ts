@@ -20,7 +20,66 @@ export function IngredientsReducer(
 ): IngredientsState {
   switch (action.type) {
     case fromIngredients.FETCH_INGREDIENTS: {
-      return;
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+
+    case fromIngredients.FETCH_INGREDIENTS_FAIL: {
+      return {
+        ...state,
+        loaded: false,
+        loading: false,
+      };
+    }
+
+    case fromIngredients.FETCH_INGREDIENTS_SUCCESS: {
+      const ingredients = action.payload;
+      const entities = [];
+
+      for (let [key, value] of Object.entries(ingredients)) {
+        entities.push(value);
+      }
+
+      return {
+        ...state,
+        loaded: true,
+        loading: false,
+        entities,
+      };
+    }
+
+    case fromIngredients.ADD_INGREDIENT: {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+
+    case fromIngredients.ADD_INGREDIENT_FAIL: {
+      return {
+        ...state,
+        loading: false,
+        loaded: false,
+      };
+    }
+
+    case fromIngredients.ADD_INGREDIENT_SUCCESS: {
+      const ingredient = action.payload;
+      const id = Object.keys(state.entities).length;
+
+      console.log(ingredient);
+
+      const entities = {
+        ...state.entities,
+        [id]: ingredient,
+      };
+
+      return {
+        ...state,
+        entities,
+      };
     }
 
     default:

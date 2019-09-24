@@ -1,0 +1,63 @@
+<div class="mat-dialog__add-ingredient mat-dialog">
+  <button mat-stroked-button (click)="onClose()" class="mat-dialog__close">
+    Cancel
+  </button>
+  <h1 class="mat-dialog__title">Add Ingredient</h1>
+  <div mat-dialog-content>
+    <form
+      class="mat-dialog__form"
+      [formGroup]="addIngredientForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <mat-form-field>
+        <mat-label>Ingredient name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Amount</mat-label>
+        <input matInput formControlName="amount" />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          type="text"
+          placeholder="Select unit"
+          aria-label="Number"
+          matInput
+          formControlName="unit"
+          [matAutocomplete]="autoUnits"
+        />
+        <mat-autocomplete #autoUnits="matAutocomplete">
+          <mat-option *ngFor="let unit of filteredUnits | async" [value]="unit">
+            {{ unit }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          type="text"
+          placeholder="Select category"
+          aria-label="Number"
+          matInput
+          formControlName="category"
+          [matAutocomplete]="autoCategories"
+        />
+        <mat-autocomplete #autoCategories="matAutocomplete">
+          <mat-option
+            *ngFor="let category of filteredCategories | async"
+            [value]="category"
+          >
+            {{ category }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="accent"
+        type="submit"
+        class="form-submit"
+        [disabled]="!addIngredientForm.valid"
+        >Add Ingredient</button
+      >
+    </form>
+  </div>
+</div>

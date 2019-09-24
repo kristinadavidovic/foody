@@ -1,0 +1,43 @@
+.mat-dialog {
+  &__add-ingredient {
+    position: relative;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    padding: 30px;
+  }
+
+  &__title,
+  &-content {
+    max-width: 80%;
+    padding: 0 24px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .form-submit {
+    margin-left: auto;
+  }
+}

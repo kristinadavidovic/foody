@@ -1,4 +1,10 @@
 .pantry {
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   .item-ingredient {
     margin: 0 0 25px;
   }
