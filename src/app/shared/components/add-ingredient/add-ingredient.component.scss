@@ -1,3 +1,5 @@
+@import '../../../../styles/variables';
+
 .mat-dialog {
   &__add-ingredient {
     position: relative;
@@ -19,11 +21,17 @@
   &__title {
     width: 100%;
     margin-bottom: 30px;
+    letter-spacing: $letterSpaceing-default;
   }
 
   &__form {
     display: flex;
     flex-wrap: wrap;
+
+    > [class*='field-'] {
+      width: 100%;
+      margin-bottom: 20px;
+    }
   }
 
   &__close {
@@ -32,12 +40,34 @@
     right: 0;
   }
 
-  .mat-form-field {
-    width: 100%;
-    margin-bottom: 20px;
+  .field-amount {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+
+    &-number {
+      width: 100%;
+      max-width: 30%;
+    }
+
+    &-radios {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      width: 100%;
+      max-width: 60%;
+
+      .field-radio {
+        margin-bottom: 10px;
+      }
+    }
   }
 
   .form-submit {
     margin-left: auto;
+  }
+
+  .mat-form-field {
+    width: 100%;
   }
 }

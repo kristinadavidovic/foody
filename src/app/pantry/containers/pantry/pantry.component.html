@@ -5,7 +5,12 @@
   </div>
   <mat-divider></mat-divider>
   <div class="pantry__categories">
-    <mat-card class="category" *ngFor="let category of categories">
+    <mat-card
+      class="category"
+      *ngFor="let category of categories"
+      matRipple
+      [matRippleColor]="primary"
+    >
       <a [routerLink]="['/pantry', category.slug]">
         {{ category.name }}
       </a>

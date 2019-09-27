@@ -1,0 +1,10 @@
+@import '../../../../styles/variables';
+
+.ingredients {
+  &__name {
+    h2 {
+      letter-spacing: $letterSpaceing-big;
+      font-family: $fontBase;
+    }
+  }
+}

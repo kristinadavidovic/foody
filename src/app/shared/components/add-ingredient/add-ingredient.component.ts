@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormArray } from '@angular/forms';
 
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
@@ -64,7 +64,10 @@ export class AddIngredientComponent implements OnInit {
 
   onSubmit() {
     const form = this.addIngredientForm;
+    const cat = form.value.category.toLowerCase().replace(/,?[ ]/g, '-');
+
     const newIngredient = form.value;
+    newIngredient['category'] = cat;
 
     this.store.dispatch(new fromStore.AddIngredient(newIngredient));
     this.onClose();

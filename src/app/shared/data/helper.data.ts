@@ -5,11 +5,11 @@ export const foodCategories = [
   },
   {
     name: 'Fruits',
-    slug: 'dairy',
+    slug: 'fruits',
   },
   {
     name: 'Grains, beans and legumes',
-    slug: 'dairy',
+    slug: 'grains-beans-and-legumes',
   },
   {
     name: 'Meat',
@@ -17,11 +17,11 @@ export const foodCategories = [
   },
   {
     name: 'Confections',
-    slug: 'dairy',
+    slug: 'confections',
   },
   {
     name: 'Vegetables',
-    slug: 'dairy',
+    slug: 'vegetables',
   },
   {
     name: 'Water',

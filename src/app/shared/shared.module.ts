@@ -12,6 +12,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatRippleModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 
@@ -34,6 +36,8 @@ import { AddIngredientComponent } from './components/add-ingredient/add-ingredie
     MatSelectModule,
     MatAutocompleteModule,
     MatCardModule,
+    MatRippleModule,
+    MatRadioModule,
   ],
   exports: [
     CommonModule,
@@ -47,6 +51,8 @@ import { AddIngredientComponent } from './components/add-ingredient/add-ingredie
     MatSelectModule,
     MatAutocompleteModule,
     MatCardModule,
+    MatRippleModule,
+    MatRadioModule,
   ],
   providers: [{ provide: MAT_DIALOG_DATA, useValue: [] }],
   entryComponents: [AddIngredientComponent],
