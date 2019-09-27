@@ -1,43 +1,28 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-
-import { AngularFireDatabase } from '@angular/fire/database';
+import { Component, OnInit } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
 
-import { Ingredient } from 'src/app/shared/models/ingredient.model';
+import { foodCategories } from '../../../shared/data/helper.data';
 
 import { AddIngredientComponent } from '../../../shared/components/add-ingredient/add-ingredient.component';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-pantry',
   templateUrl: './pantry.component.html',
   styleUrls: ['./pantry.component.scss'],
 })
-export class PantryComponent implements OnInit, OnDestroy {
-  ingredients$: Ingredient[];
-  animal: string;
-  name: string;
-  subIngredients: any;
+export class PantryComponent implements OnInit {
+  categories = foodCategories;
 
-  constructor(public dialog: MatDialog, public db: AngularFireDatabase) {}
+  constructor(public dialog: MatDialog, private route: ActivatedRoute) {}
 
-  ngOnInit() {
-    this.subIngredients = this.db
-      .list<Ingredient>('/foody/ingredients')
-      .valueChanges()
-      .subscribe(ingredients => {
-        this.ingredients$ = ingredients;
-      });
-  }
+  ngOnInit() {}
 
   addIngredient(): void {
-    const dialogRef = this.dialog.open(AddIngredientComponent, {
+    this.dialog.open(AddIngredientComponent, {
       width: '70vw',
       height: '70vh',
-      data: { name: this.name, animal: this.animal },
+      data: { category: 'category name' },
     });
-  }
-
-  ngOnDestroy() {
-    this.subIngredients.unsubscribe();
   }
 }

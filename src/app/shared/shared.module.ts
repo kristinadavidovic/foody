@@ -6,7 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -32,6 +33,7 @@ import { AddIngredientComponent } from './components/add-ingredient/add-ingredie
     MatInputModule,
     MatSelectModule,
     MatAutocompleteModule,
+    MatCardModule,
   ],
   exports: [
     CommonModule,
@@ -44,7 +46,9 @@ import { AddIngredientComponent } from './components/add-ingredient/add-ingredie
     MatInputModule,
     MatSelectModule,
     MatAutocompleteModule,
+    MatCardModule,
   ],
+  providers: [{ provide: MAT_DIALOG_DATA, useValue: [] }],
   entryComponents: [AddIngredientComponent],
 })
 export class SharedModule {}

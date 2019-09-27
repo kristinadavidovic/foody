@@ -1,18 +1,21 @@
 // typography
-$fontBase:              'Roboto', sans-serif;
-$fontSpecial:           'Roboto Slab', serif;
+$fontBase: 'Roboto', sans-serif;
+$fontSpecial: 'Roboto Slab', serif;
 
 // Widths
-$containerWidth:        1024px;
+$containerWidth: 1024px;
+
+// Misc
+$borderRadius-default: 5px;
 
 // Colors
-$colorBlack:           #000;
-$colorWhite:           #FFF;
+$colorBlack: #000;
+$colorWhite: #fff;
 
-$colorPelorous:       #34B1C2;
-$colorAquamarine:     #65FBD2;
-$colorPersimmon:      #FF6347;
+$colorPelorous: #34b1c2;
+$colorAquamarine: #65fbd2;
+$colorPersimmon: #ff6347;
 
-$colorPrimary:          $colorPelorous;
-$colorAccent:           $colorAquamarine;
-$colorWarn:             $colorPersimmon;
+$colorPrimary: $colorPelorous;
+$colorAccent: $colorAquamarine;
+$colorWarn: $colorPersimmon;

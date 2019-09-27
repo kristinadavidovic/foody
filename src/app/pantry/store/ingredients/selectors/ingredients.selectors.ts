@@ -15,3 +15,10 @@ export const getAllIngredients = createSelector(
     return Object.keys(entities).map(id => entities[id]);
   }
 );
+
+export const getIngredientCategories = createSelector(
+  getIngredientEntities,
+  entities => {
+    console.log(entities);
+  }
+);

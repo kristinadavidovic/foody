@@ -4,14 +4,12 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 
 import * as fromStore from '../../../pantry/store';
+
+import { foodCategories, units } from '../../data/helper.data';
 
 export interface DialogData {
   animal: string;
@@ -24,8 +22,8 @@ export interface DialogData {
   styleUrls: ['./add-ingredient.component.scss'],
 })
 export class AddIngredientComponent implements OnInit {
-  unitsOptions: string[] = ['kg', 'ml', 'g', 'tbs', 'tsp', 'fl oz', 'cup'];
-  categoriesOptions: string[] = ['vegetables', 'fruits'];
+  unitsOptions: string[] = units;
+  categoriesOptions = [];
 
   addIngredientForm: FormGroup;
 
@@ -42,6 +40,11 @@ export class AddIngredientComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    for (const category in foodCategories) {
+      foodCategories.hasOwnProperty(category) &&
+        this.categoriesOptions.push(foodCategories[category].name);
+    }
+
     this.filteredUnits = this.units.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(this.unitsOptions, value))
@@ -51,6 +54,7 @@ export class AddIngredientComponent implements OnInit {
       startWith(''),
       map(value => this._filter(this.categoriesOptions, value))
     );
+
     this._buildForm();
   }
 
@@ -76,8 +80,8 @@ export class AddIngredientComponent implements OnInit {
   }
 
   private _filter(options: string[], value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return options.filter(option => option.toLowerCase().includes(filterValue));
+    return options.filter(option =>
+      option.toLowerCase().includes(value.toLowerCase())
+    );
   }
 }

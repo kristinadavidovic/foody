@@ -4,9 +4,11 @@
     <button mat-raised-button (click)="addIngredient()">Add ingredient</button>
   </div>
   <mat-divider></mat-divider>
-  <div class="pantry__ingredients">
-    <div *ngFor="let ingredient of ingredients$" class="item-ingredient">
-      <app-ingredient [ingredient]="ingredient"></app-ingredient>
-    </div>
+  <div class="pantry__categories">
+    <mat-card class="category" *ngFor="let category of categories">
+      <a [routerLink]="['/pantry', category.slug]">
+        {{ category.name }}
+      </a>
+    </mat-card>
   </div>
 </div>

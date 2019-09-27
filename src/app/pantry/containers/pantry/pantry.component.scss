@@ -1,3 +1,5 @@
+@import '../../../../styles/variables';
+
 .pantry {
   .wrapper {
     display: flex;
@@ -7,5 +9,36 @@
 
   .item-ingredient {
     margin: 0 0 25px;
+  }
+
+  &__categories {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px -10px;
+  }
+
+  .category {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: calc(100% / 3 - 20px);
+    padding: 0;
+    border-radius: $borderRadius-default;
+    margin: 10px;
+    transition: transform 0.2s ease;
+
+    &:focus,
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    a {
+      display: block;
+      height: 100%;
+      width: 100%;
+      padding: 42px;
+      text-align: center;
+    }
   }
 }
