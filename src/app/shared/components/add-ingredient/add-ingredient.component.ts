@@ -11,7 +11,7 @@ import {
 } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 
-import * as fromStore from '../../store';
+import * as fromStore from '../../../pantry/store';
 
 export interface DialogData {
   animal: string;

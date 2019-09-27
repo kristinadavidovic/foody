@@ -21,10 +21,9 @@ import { PantryResolver } from './routing/resolvers/pantry.resolver';
 
 import { PantryComponent } from './containers/pantry/pantry.component';
 import { IngredientComponent } from './components/ingredient/ingredient.component';
-import { AddIngredientComponent } from './components/add-ingredient/add-ingredient.component';
 
 @NgModule({
-  declarations: [PantryComponent, IngredientComponent, AddIngredientComponent],
+  declarations: [PantryComponent, IngredientComponent],
   imports: [
     SharedModule,
     HttpClientModule,
@@ -34,7 +33,7 @@ import { AddIngredientComponent } from './components/add-ingredient/add-ingredie
     StoreModule.forFeature('ingredients', IngredientsReducer),
     EffectsModule.forFeature(effectsIngredients),
   ],
-  exports: [AddIngredientComponent],
+  exports: [],
   providers: [PantryResolver],
 })
 export class PantryModule {}

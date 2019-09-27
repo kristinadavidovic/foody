@@ -1,44 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { AngularFireDatabase } from '@angular/fire/database';
 
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
-
-import * as fromStore from '../../store';
+import { MatDialog } from '@angular/material/dialog';
 
 import { Ingredient } from 'src/app/shared/models/ingredient.model';
 
-import { AddIngredientComponent } from '../../components/add-ingredient/add-ingredient.component';
+import { AddIngredientComponent } from '../../../shared/components/add-ingredient/add-ingredient.component';
 @Component({
   selector: 'app-pantry',
   templateUrl: './pantry.component.html',
   styleUrls: ['./pantry.component.scss'],
 })
-export class PantryComponent implements OnInit {
+export class PantryComponent implements OnInit, OnDestroy {
   ingredients$: Ingredient[];
   animal: string;
   name: string;
+  subIngredients: any;
 
-  constructor(
-    private store: Store<fromStore.IngredientsState>,
-    public dialog: MatDialog,
-    db: AngularFireDatabase
-  ) {
-    db.list<Ingredient>('/foody/ingredients')
+  constructor(public dialog: MatDialog, public db: AngularFireDatabase) {}
+
+  ngOnInit() {
+    this.subIngredients = this.db
+      .list<Ingredient>('/foody/ingredients')
       .valueChanges()
       .subscribe(ingredients => {
         this.ingredients$ = ingredients;
       });
   }
-
-  ngOnInit() {}
 
   addIngredient(): void {
     const dialogRef = this.dialog.open(AddIngredientComponent, {
@@ -46,5 +35,9 @@ export class PantryComponent implements OnInit {
       height: '70vh',
       data: { name: this.name, animal: this.animal },
     });
+  }
+
+  ngOnDestroy() {
+    this.subIngredients.unsubscribe();
   }
 }
